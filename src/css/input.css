@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+/* @plugin "flowbite/plugin";
+@source "../node_modules/flowbite"; */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@layer components {
+  .btn {
+    @apply mx-1 rounded-lg bg-main-color px-6 py-3  text-white hover:bg-hover font-medium;
+  }
+
+  .shadow {
+    @apply text-gray-900 bg-white;
+  }
+
+  .img-box-img {
+    @apply translate-y-0 group-hover:-translate-y-[10px] transition-all duration-400 w-full h-[100%] object-cover cursor-pointer;
+  }
+
+  .box-h3 {
+    @apply text-main-color text-[0.9rem] font-semibold capitalize;
+  }
+
+  .social-icon {
+    @apply max-sm:size-[45px] max-sm:text-2xl text-3xl transition-all duration-500 size-[55px] border-2 border-red-600 bg-red-100 text-main-color hover:bg-red-700 hover:border-red-200 hover:text-red-50 flex items-center justify-center rounded-full;
+  }
+}
+
+@theme {
+  --color-main-color: #fa1216;
+  --color-text-color: #020307;
+  --color-bg-color: #fff;
+  --color-hover: #ff2c1f;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+  scroll-padding-top: 30px;
+}
+/* custom scroll bar */
+html::-webkit-scrollbar {
+  width: 0.4rem;
+  background-color: #000000;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #ff2c1f;
+  border-radius: 4rem;
+}
+/* custom scroll bar */
+
+.navbar li {
+  position: relative;
+}
+.home-active::after,
+li a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  height: 4px;
+  background: var(--color-main-color);
+  width: 0%;
+  border-radius: 20px;
+  z-index: 999;
+  transition: all 0.6s;
+}
+
+li a:hover::after,
+.home-active::after {
+  width: 100%;
+}
